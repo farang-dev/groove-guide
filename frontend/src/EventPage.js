@@ -10,7 +10,7 @@ const EventPage = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await axios.get(`http://localhost:1337/api/events/${id}`);
+        const response = await axios.get(`http://localhost:1337/api/events/${id}?populate=*`);
         console.log('Response:', response.data);
         if (response.data) {
           setEvent(response.data.data);
