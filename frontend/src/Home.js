@@ -38,6 +38,7 @@ const Home = () => {
             title={post.attributes.Title}
             content={post.attributes.Content}
             venue={post.attributes.Venue}
+            image={post.attributes.Image.data.attributes.formats.large.url}
           />
         </Link>
       ))}
