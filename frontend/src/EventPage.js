@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const EventPage = () => {
   const { id } = useParams();
@@ -35,11 +35,40 @@ const EventPage = () => {
     return <div>Loading...</div>;
   }
 
+  const startDate = new Date(event.attributes.StartDateTime).toLocaleString('en-US', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+  });
+
+  const endDate = new Date(event.attributes.EndDateTime).toLocaleString('en-US', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+  });
+
   return (
-    <div>
-      <h2>{event.attributes.Title}</h2>
-      <p>{event.attributes.Content}</p>
-      <p>Venue: {event.attributes.Venue}</p>
+    <div className="event-container">
+      <Link to="/" className="back-link">Back to home</Link>
+      <div className="event-columns">
+        <img className="page-image" src={`http://localhost:1337${event.attributes.Image.data.attributes.formats.large.url}`} alt="Event" />
+        <div className="event-details">
+          <h2>{event.attributes.Title}</h2>
+          <p>Line-ups: {event.attributes.Dj}</p>
+          <p>Genre: {event.attributes.Genre}</p>
+          <p>{event.attributes.Content}</p>
+          <p>{startDate} - {endDate}</p>
+          <p>Venue: {event.attributes.Venue}</p>
+          <p>Address: {event.attributes.Address}</p>
+          <p>Cost: ${event.attributes.Cost}</p>
+        </div>
+      </div>
     </div>
   );
 };

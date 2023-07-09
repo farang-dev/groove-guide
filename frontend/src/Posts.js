@@ -1,17 +1,26 @@
-// Post.js
-
 import React from 'react';
 
-const Post = ({ title, content, venue, image }) => {
+const Post = ({ title, dj, venue, image, start_date_time }) => {
+  const formattedDate = new Date(start_date_time).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
   return (
-    <>
-      <div style={{width: '100%', height: '100%', background: 'white', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderLeft: '0.10px #3D3D3D solid', borderTop: '0.10px #3D3D3D solid', borderRight: '0.10px #3D3D3D solid', borderBottom: '0.10px #3D3D3D solid'}} />
-        <h2>{title}</h2>
-        <p>{content}</p>
-        <p>Venue: {venue}</p>
-        <img style={{width: '100%', height: '100%'}} src={`http://localhost:1337${image}`} />
-      <div/>
-    </>
+    <div className="container">
+      <div className="card">
+        <div className="image-container">
+          <img className="image" src={`http://localhost:1337${image}`} alt="Event" />
+        </div>
+        <div className="text-container">
+          <p>{formattedDate}</p>
+          <h2>{title}</h2>
+          <p>{dj}</p>
+          <p>Venue: {venue}</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
