@@ -10,7 +10,7 @@ const EventPage = () => {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const response = await axios.get(`http://0.0.0.0:1339/api/events/${id}?populate=*`);
+        const response = await axios.get(`https://groove-guide.onrender.com/api/events/${id}?populate=*`);
         console.log('Response:', response.data);
         if (response.data) {
           setEvent(response.data.data);
@@ -57,7 +57,7 @@ const EventPage = () => {
     <div className="event-container">
       <Link to="/" className="back-link">Back to home</Link>
       <div className="event-columns">
-        <img className="page-image" src={`http://localhost:1337${event.attributes.Image.data.attributes.formats.large.url}`} alt="Event" />
+        <img className="page-image" src={`https://groove-guide.onrender.com${event.attributes.Image.data.attributes.formats.large.url}`} alt="Event" />
         <div className="event-details">
           <h2>{event.attributes.Title}</h2>
           <p>Line-ups: {event.attributes.Dj}</p>
