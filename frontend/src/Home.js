@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('https://groove-guide.onrender.com//api/events?populate=*');
+        const response = await axios.get('https://groove-guide.onrender.com/api/events?populate=*');
         console.log('Response:', response.data);
         if (Array.isArray(response.data.data)) {
           setPosts(response.data.data);
@@ -42,7 +42,7 @@ const Home = () => {
             start_date_time={post.attributes.StartDateTime}
             content={post.attributes.Content}
             venue={post.attributes.Venue}
-            image={post.attributes.Image.data.attributes.formats.large.url}
+            image={`https://groove-guide.onrender.com${post.attributes.Image.data.attributes.formats.large.url}`}
           />
         </Link>
       ))}
