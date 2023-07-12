@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('//groove-guide.onrender.com/api/events?populate=*');
+        const response = await axios.get('https://groove-guide.onrender.com//api/events?populate=*');
         console.log('Response:', response.data);
         if (Array.isArray(response.data.data)) {
           setPosts(response.data.data);
