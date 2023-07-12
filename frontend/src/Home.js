@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:1337/api/events?populate=*');
+        const response = await axios.get('http://0.0.0.0:1339/api/events?populate=*');
         console.log('Response:', response.data);
         if (Array.isArray(response.data.data)) {
           setPosts(response.data.data);

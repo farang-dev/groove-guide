@@ -11,7 +11,7 @@ const Post = ({ title, dj, venue, image, start_date_time }) => {
     <div className="container">
       <div className="card">
         <div className="image-container">
-          <img className="image" src={`http://localhost:1337${image}`} alt="Event" />
+          <img className="image" src={`http://0.0.0.0:1339${image}`} alt="Event" />
         </div>
         <div className="text-container">
           <p>{formattedDate}</p>
