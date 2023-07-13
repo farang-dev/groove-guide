@@ -42,7 +42,7 @@ const Home = () => {
             start_date_time={post.attributes.StartDateTime}
             content={post.attributes.Content}
             venue={post.attributes.Venue}
-            image={`https://groove-guide.onrender.com${post.attributes.Image.data.attributes.formats.large.url}`}
+            image={post.attributes.Image.data.attributes.formats.large.url}
           />
         </Link>
       ))}
