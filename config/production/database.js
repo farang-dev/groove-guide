@@ -8,7 +8,7 @@ module.exports = ({ env }) => ({
       user: env('DATABASE_USERNAME', 'strapi'),
       password: env('DATABASE_PASSWORD', 'strapi'),
       schema: env('DATABASE_SCHEMA', 'public'), // Not required
-      ssl: env('DATABASE_SSL', false)
+      ssl: env('DATABASE_SSL', false),
     },
     acquireConnectionTimeout: 1000000,
     pool: {
@@ -19,8 +19,8 @@ module.exports = ({ env }) => ({
       destroyTimeoutMillis: 300000,
       idleTimeoutMillis: 30000,
       reapIntervalMillis: 1000,
-      createRetryIntervalMillis: 2000
+      createRetryIntervalMillis: 2000,
     },
-    debug: false
-  }
+    debug: false,
+  },
 });
