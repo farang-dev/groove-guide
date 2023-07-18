@@ -1,12 +1,3 @@
 module.exports = ({ env }) => ({
-  // ...
-  connection: {
-    client: 'postgres',
-    connection: {
-      // ...
-      port: env.int('DATABASE_PORT', 5432),
-      // ...
-    },
-  },
-  // ...
+  url: env("https://groove-guide.onrender.com"),
 });
