@@ -1,6 +1,12 @@
-modbrew uninstall postgresule.exports = ({ env }) => ({
-  url: env("https://groove-guide.onrender.com/"),
-  dirs: {
-    public: "/data/public"
+module.exports = ({ env }) => ({
+  // ...
+  connection: {
+    client: 'postgres',
+    connection: {
+      // ...
+      port: env.int('DATABASE_PORT', 5432),
+      // ...
+    },
   },
+  // ...
 });
