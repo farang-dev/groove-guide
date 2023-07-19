@@ -6,13 +6,14 @@ module.exports = ({ env }) => {
 
   return {
     connection: {
-      client: 'postgres',
+      client: "pg",
       connection: {
         host,
         port,
         database,
         user,
         password,
+        ssl: true, // Enable SSL/TLS for the connection
       },
       debug: false,
     },
