@@ -1,3 +1,3 @@
 module.exports = ({ env }) => ({
-  url: env("https://groove-guide.onrender.com"),
+  url: env('APP_URL', 'https://groove-guide.onrender.com'), // Replace with your desired URL
 });
