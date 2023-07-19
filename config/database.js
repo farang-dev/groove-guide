@@ -1,12 +1,14 @@
 const { parse } = require("pg-connection-string");
-const databaseUrl = "postgres://event_5qb7_user:AU6IGfKXezB61Zg498yfkpSgBUYi7LEJ@dpg-cirn1vp8g3n42ojkma10-a.oregon-postgres.render.com/event_5qb7";
 
 module.exports = ({ env }) => {
-  const { host, port, database, user, password } = parse(databaseUrl);
+  const connectionString = env("DATABASE_URL"); // Use the environment variable for the connection string
+
+  // Parse the connection string to get individual details
+  const { host, port, database, user, password } = parse(connectionString);
 
   return {
     connection: {
-      client: 'postgres',
+      client: "postgres",
       connection: {
         host,
         port,
