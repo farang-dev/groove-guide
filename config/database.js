@@ -7,7 +7,7 @@ module.exports = ({ env }) => {
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 5432),
         database: env('DATABASE_NAME', 'event'),
-        user: env('DATABASE_USERNAME', 'postgres'),
+        user: env('DATABASE_USERNAME', 'fuminozawa'),
         password: env('DATABASE_PASSWORD', '0795'),
         ssl: env.bool('DATABASE_SSL', false) && {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
