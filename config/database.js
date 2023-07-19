@@ -1,31 +1,20 @@
-module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'postgres');
+const { parse } = require("pg-connection-string");
+const databaseUrl = "postgres://event_5qb7_user:AU6IGfKXezB61Zg498yfkpSgBUYi7LEJ@dpg-cirn1vp8g3n42ojkma10-a.oregon-postgres.render.com/event_5qb7";
 
-  const connections = {
-    postgres: {
-      connection: {
-        host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 5432),
-        database: env('DATABASE_NAME', 'event'),
-        user: env('DATABASE_USERNAME', 'fuminozawa'),
-        password: env('DATABASE_PASSWORD', '0795'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-        },
-        schema: env('DATABASE_SCHEMA', 'public'),
-      },
-      pool: {
-        min: env.int('DATABASE_POOL_MIN', 2),
-        max: env.int('DATABASE_POOL_MAX', 10),
-      },
-    },
-  };
+module.exports = ({ env }) => {
+  const { host, port, database, user, password } = parse(databaseUrl);
 
   return {
     connection: {
-      client,
-      ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      client: 'postgres',
+      connection: {
+        host,
+        port,
+        database,
+        user,
+        password,
+      },
+      debug: false,
     },
   };
 };
