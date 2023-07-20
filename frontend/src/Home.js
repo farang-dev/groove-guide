@@ -38,7 +38,6 @@ const Home = () => {
           <Post
             title={post.attributes.Title}
             dj={post.attributes.Dj}
-            address={post.attributes.Address}
             start_date_time={post.attributes.StartDateTime}
             content={post.attributes.Content}
             venue={post.attributes.Venue}

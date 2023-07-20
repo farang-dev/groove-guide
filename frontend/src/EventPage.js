@@ -57,7 +57,7 @@ const EventPage = () => {
     <div className="event-container">
       <Link to="/" className="back-link">Back to home</Link>
       <div className="event-columns">
-        <img className="page-image" src={`https://groove-guide.onrender.com${event.attributes.Image.data.attributes.formats.large.url}`} alt="Event" />
+        <img className="page-image" src={`${event.attributes.Image.data.attributes.formats.large.url}`} alt="Event" />
         <div className="event-details">
           <h2>{event.attributes.Title}</h2>
           <p>Line-ups: {event.attributes.Dj}</p>
